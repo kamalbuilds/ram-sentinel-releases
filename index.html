@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="RAM Sentinel warns Mac AI-agent workflows before swap fills, names the process behind the pressure, and helps you recover before a freeze.">
+    <meta name="description" content="FixMyMac shows what is using your Mac's memory and helps you choose what to close before a slowdown becomes a freeze.">
     <meta name="theme-color" content="#eeefe9">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="RAM Sentinel | Close the right thing before your Mac freezes">
-    <meta property="og:description" content="A private Mac memory autopilot for developers running AI agents and browser automation.">
+    <meta property="og:title" content="FixMyMac for Mac">
+    <meta property="og:description" content="See what's filling your Mac's memory, then choose what to close.">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="RAM Sentinel | Close the right thing before your Mac freezes">
-    <meta name="twitter:description" content="A private Mac memory autopilot for developers running AI agents and browser automation.">
-    <title>RAM Sentinel | Close the right thing before your Mac freezes</title>
+    <meta name="twitter:title" content="FixMyMac for Mac">
+    <meta name="twitter:description" content="See what's filling your Mac's memory, then choose what to close.">
+    <title>FixMyMac for Mac | Find what's filling your memory</title>
     <link rel="icon" type="image/svg+xml" href="./ram-sentinel-mark.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,147 +20,115 @@
   </head>
   <body>
     <header class="masthead">
-      <a class="brand" href="./" aria-label="RAM Sentinel home">
+      <a class="brand" href="./" aria-label="FixMyMac home">
         <img src="./ram-sentinel-mark.svg" width="36" height="36" alt="">
-        <span>RAM Sentinel</span>
+        <span>FixMyMac</span>
       </a>
       <nav aria-label="Main navigation">
-        <a class="button button-small" href="https://github.com/kamalbuilds/ram-sentinel-releases/releases/latest/download/RamSentinel-macos.dmg">Download</a>
+        <a class="nav-link" href="#pricing">Get Pro</a>
+        <a class="button button-small" href="https://github.com/kamalbuilds/ram-sentinel-releases/releases/latest/download/FixMyMac.dmg">Download</a>
       </nav>
     </header>
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <h1 id="hero-title">Stop the next freeze.</h1>
-          <p class="lede">RAM Sentinel watches swap while Claude Code, Codex, Cursor, and browser automation work. It names what is crowding memory and helps clear the leftovers before your Mac freezes.</p>
-          <div class="actions">
-            <a class="button" href="https://github.com/kamalbuilds/ram-sentinel-releases/releases/latest/download/RamSentinel-macos.dmg">Download for Mac <span aria-hidden="true">↗</span></a>
-            <span class="requirements">macOS 13+ · Apple silicon · Notarized by Apple</span>
-          </div>
-          <p class="license-line">Runs on your Mac, with no account, network calls, or telemetry.</p>
+          <h1 id="hero-title">Find what’s filling your Mac</h1>
+          <p class="lede">FixMyMac shows which apps and background processes are using memory, so you can choose what to close before a slowdown becomes a freeze.</p>
+          <a class="button" href="https://github.com/kamalbuilds/ram-sentinel-releases/releases/latest/download/FixMyMac.dmg">Download for Mac <span aria-hidden="true">↗</span></a>
+          <p class="requirements">Version 0.3.0 for macOS 13 or later on Apple silicon. Signed and notarized by Apple.</p>
         </div>
 
-        <figure class="memory-reading panel" data-ui="memory reading" aria-labelledby="memory-caption">
-          <figcaption id="memory-caption">Recorded on a 16 GB MacBook, 15 Nov 2026</figcaption>
-          <div class="reading-alert">
-            <span class="state-mark" aria-hidden="true"></span>
-            <div><span class="status-chip">Critical</span><strong>Swap 97% full</strong><span>System will freeze soon</span></div>
-            <strong class="reading-number">15.6 <small>of 16.0 GB</small></strong>
-          </div>
-          <div class="memory-map" data-ui="memory map" role="img" aria-label="Sixteen gigabytes of RAM split across listed apps, memory compressor, and available memory. Swap extends almost the same distance beyond the RAM boundary.">
-            <div class="memory-scale"><span>RAM · 16 GB</span><span>Swap · 16 GB scale</span></div>
-            <div class="map-track">
-              <div class="ram-segments">
-                <i class="segment brave" title="Brave Browser, 5.0 GB"></i>
-                <i class="segment kept" title="Kept Brave agent profile, 878 MB"></i>
-                <i class="segment claude" title="claude, 845 MB"></i>
-                <i class="segment wispr" title="Wispr Flow, 341 MB"></i>
-                <i class="segment whatsapp" title="WhatsApp, 215 MB"></i>
-                <i class="segment python" title="python workers, 202 MB"></i>
-                <i class="segment node" title="node workers, 109 MB"></i>
-                <i class="segment compressor" title="Memory compressor, 5.9 GB"></i>
-                <i class="segment available" title="Everything else, 2.51 GB"></i>
-              </div>
-              <div class="swap-overflow" aria-hidden="true"></div>
-              <span class="ram-edge" aria-hidden="true"></span>
-            </div>
-            <div class="map-boundaries"><span>0</span><span>16 GB RAM edge</span><span>32 GB</span></div>
-            <ul class="memory-legend">
-              <li><span class="legend-swatch brave"></span><span>Brave Browser<small>84 processes · 7 tabs · 78 renderers</small></span><strong>5.0 GB</strong></li>
-              <li><span class="legend-swatch kept"></span><span>Brave, kept agent profile</span><strong>878 MB</strong></li>
-              <li><span class="legend-swatch claude"></span><span>claude · 10 processes</span><strong>845 MB</strong></li>
-              <li><span class="legend-swatch wispr"></span><span>Wispr Flow</span><strong>341 MB</strong></li>
-              <li><span class="legend-swatch whatsapp"></span><span>WhatsApp</span><strong>215 MB</strong></li>
-              <li><span class="legend-swatch python"></span><span>python workers · MCP and dev servers</span><strong>202 MB</strong></li>
-              <li><span class="legend-swatch node"></span><span>node workers · 6 groups</span><strong>109 MB</strong></li>
-              <li><span class="legend-swatch compressor"></span><span>Memory compressor</span><strong>5.9 GB</strong></li>
-              <li><span class="legend-swatch available"></span><span>Everything else</span><strong>2.51 GB</strong></li>
-            </ul>
-            <div class="pressure-stats"><span>Memory pressure <strong>33% free</strong></span><span>Swap <strong>15.6 / 16.0 GB</strong></span></div>
-          </div>
+        <figure class="panel product-shot">
+          <img src="./assets/dashboard.jpg" width="2000" height="1000" alt="FixMyMac dashboard showing memory pressure, swap use, a memory map, and apps that can be reviewed or closed." fetchpriority="high">
+          <figcaption>FixMyMac dashboard</figcaption>
         </figure>
       </section>
 
-      <section class="diagnosis" aria-labelledby="diagnosis-title">
+      <section class="capabilities" aria-labelledby="capabilities-title">
         <div class="section-intro">
-          <h2 id="diagnosis-title">From process names to next move.</h2>
-          <p>RAM Sentinel combines swap, memory compression, pressure, and load per core into a plain-English diagnosis and recovery plan. Both columns below come from the same 16 GB MacBook on 15 Nov 2026.</p>
+          <h2 id="capabilities-title">See what’s behind the pressure</h2>
+          <p>When Activity Monitor shows a long list of helpers, FixMyMac groups apps and processes into a view you can act on. It can also spot background work left by coding assistants and automated browsers.</p>
         </div>
-        <div class="comparison">
-          <div class="raw-list">
-            <h3>Activity Monitor says</h3>
-            <ul aria-label="Process list from Activity Monitor">
-              <li><span>Brave Browser Helper (Renderer)</span><strong>202 MB</strong></li>
-              <li><span>Brave Browser Helper (Renderer)</span><strong>171 MB</strong></li>
-              <li><span>Brave Browser Helper (Renderer)</span><strong>169 MB</strong></li>
-              <li><span>Brave Browser Helper (Renderer)</span><strong>128 MB</strong></li>
-              <li><span>80 more Brave helpers, then six rows of node</span></li>
-            </ul>
-          </div>
-          <div class="recovery-plan panel">
-            <h3>RAM Sentinel says</h3>
-            <ul>
-              <li><span><b>Close heavy Brave tabs first</b><small>7 tabs hold about 5.0 GB, before you quit the browser</small></span><span class="plan-arrow" aria-hidden="true">↗</span></li>
-              <li><span><b>Stop mcp-server-mobile and vite preview</b><small>Named workers, not six rows of “node”</small></span><span class="plan-arrow" aria-hidden="true">↗</span></li>
-              <li><span><b>Close the automation browser a run left behind</b><small>A one-off profile, 410 MB, outside your kept profiles</small></span><span class="plan-arrow" aria-hidden="true">↗</span></li>
-            </ul>
-            <p class="kept-note"><span aria-hidden="true">Kept</span> Your agent profile stays open.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="agent-workflow" aria-labelledby="workflow-title">
-        <div class="workflow-copy">
-          <h2 id="workflow-title">Clean up after agent runs.</h2>
-          <p>Color-coded swap readings in the menu bar tell you when pressure is rising. Headless browsers and orphaned worker trees can stay alive after a run ends. RAM Sentinel finds them and closes them in one click. Profiles you keep are never closed.</p>
-          <p class="autopilot-note"><span class="toggle-state" aria-hidden="true"><i></i></span><span><strong>Optional autopilot</strong><small>Off until you turn it on. Closes leftover headless browsers on its own. Everything else waits for your click.</small></span></p>
-        </div>
-        <div class="gate-example panel">
-          <h3>Pause new work while memory is critical</h3>
-          <p>Use the gate in an agent loop or CI job. It exits 0 when memory is okay, 1 for a warning, and 2 when critical.</p>
-          <pre><code>until ram-sentinel --gate; do&#10;  sleep 30&#10;done &amp;&amp; claude -p &quot;...&quot;</code></pre>
-        </div>
-      </section>
-
-      <section class="recovery" aria-labelledby="recovery-title">
-        <div class="recovery-heading">
-          <h2 id="recovery-title">A warning you can act on. A record of what worked.</h2>
-          <p>See the culprit before the freeze. Afterward, check what was closed, how much memory it freed, and how long recovery took.</p>
-        </div>
-        <div class="recovery-ui">
-          <article class="alert-example panel" data-ui="alert example" aria-label="Example app alert UI">
-            <div class="ui-caption"><span>ALERT · APP UI</span><span class="alert-dot" aria-hidden="true"></span></div>
-            <p class="alert-title">Swap 91% full.</p>
-            <p class="alert-copy">Close the leftover headless browser. Frees about 1.4 GB.</p>
-            <button type="button" class="button free-button">Free about 1.4 GB</button>
+        <div class="capability-list">
+          <article>
+            <h3>Follow an app’s processes</h3>
+            <p>Expand an app to see its child processes. Choose one to end, and FixMyMac warns you first.</p>
           </article>
-          <article class="weekly-example panel" data-ui="weekly summary" aria-label="Example weekly summary app UI">
-            <div class="weekly-top"><div><span class="ui-caption">STALL LOG · APP UI</span><h3>This week</h3></div><span class="summary-icon" aria-hidden="true">↗</span></div>
-            <div class="log-table" role="table" aria-label="Stall recovery summary">
-              <div class="log-row log-header" role="row"><span role="columnheader">Stall</span><span role="columnheader">Closed</span><span role="columnheader">Freed</span><span role="columnheader">Recovery</span></div>
-              <div class="log-row" role="row"><span role="cell">Each event</span><span role="cell">Named process</span><span role="cell">Measured</span><span role="cell">Recorded</span></div>
-              <div class="log-row" role="row"><span role="cell">Week view</span><span role="cell">By culprit</span><span role="cell">Totaled</span><span role="cell">Summarized</span></div>
-            </div>
-            <p class="summary-foot">Each stall and recovery stays in your local log.</p>
+          <article>
+            <h3>Keep your important profiles open</h3>
+            <p>Mark browser profiles as <span class="chip">Kept</span>. FixMyMac leaves them alone during cleanup.</p>
+          </article>
+          <article>
+            <h3>Notice memory that keeps climbing</h3>
+            <p>FixMyMac flags apps whose memory use continues to rise, so you can investigate before they crowd out everything else.</p>
+          </article>
+          <article>
+            <h3>Choose when cleanup happens</h3>
+            <p>Autopilot is off by default. In Ask first mode, review each proposed close. The Activity log records every close and its recovery result.</p>
           </article>
         </div>
       </section>
 
-      <section class="privacy" aria-label="Privacy">
-        <p>Your memory data stays on your Mac. RAM Sentinel makes no network calls and collects no telemetry.</p>
-        <p>No account and no sign-in. Open the app and it starts watching swap from the menu bar.</p>
+      <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+        <div class="section-intro">
+          <h2 id="pricing-title">Free to see and close. Pro does it for you.</h2>
+          <p>Everything you do by hand is free, for good. Pro adds the cleanup that runs while you work, and only the parts you switch on.</p>
+        </div>
+        <div class="plan-list">
+          <article class="plan plan-free" aria-labelledby="free-title">
+            <header class="plan-heading">
+              <h3 id="free-title">Free</h3>
+              <p class="plan-price">$0</p>
+            </header>
+            <ul class="plan-features">
+              <li>Live memory, swap and pressure in the menu bar</li>
+              <li>Which apps and browser profiles hold your memory</li>
+              <li>Expand any app to see its processes and end one</li>
+              <li>One click close for leftovers, with a warning first</li>
+              <li>Kept profiles that are never closed</li>
+            </ul>
+          </article>
+          <article class="plan plan-pro" aria-labelledby="pro-title">
+            <header class="plan-heading">
+              <h3 id="pro-title">Pro</h3>
+              <div class="pro-prices" aria-label="Pro pricing options">
+                <div class="pro-option">
+                  <p class="plan-price">$2.99 per month</p>
+                  <a class="button button-small" href="https://www.creem.io/payment/prod_64BUaEwrq3vUzyEZTwCZIV">Subscribe monthly</a>
+                </div>
+                <div class="pro-option">
+                  <p class="plan-price">$19 once, yours to keep <small>launch price, then $29</small></p>
+                  <a class="button button-small" href="https://www.creem.io/payment/prod_Kmg4TrcTT8Y2qbKjIIK1">Buy once for $19</a>
+                </div>
+              </div>
+            </header>
+            <ul class="plan-features">
+              <li>Everything in Free</li>
+              <li>Autopilot: ask first, or close leftovers on its own</li>
+              <li>Close browser tabs you have not looked at in a while, with one click reopen</li>
+              <li>Alerts when an app's memory keeps climbing</li>
+              <li>Full history of every close and what it freed</li>
+            </ul>
+          </article>
+        </div>
+        <p class="pricing-note">Checkout runs on Creem. Your license key arrives with the receipt: paste it into FixMyMac Settings and Pro turns on. Paying once covers your own Macs and a year of updates.</p>
       </section>
 
-      <section class="download-rail" aria-labelledby="download-title">
-        <div><h2 id="download-title">Give the next run room to finish.</h2><p>macOS 13 or later · Apple silicon · Signed and notarized by Apple</p></div>
-        <a class="button" href="https://github.com/kamalbuilds/ram-sentinel-releases/releases/latest/download/RamSentinel-macos.dmg">Download for Mac <span aria-hidden="true">↗</span></a>
+      <section class="local-run" aria-labelledby="local-title">
+        <div>
+          <h2 id="local-title">Your Mac stays in control</h2>
+          <p>Memory checks and app controls run on your Mac. No account or sign-in is needed.</p>
+        </div>
+        <a class="button" href="https://github.com/kamalbuilds/ram-sentinel-releases/releases/latest/download/FixMyMac.dmg">Download for Mac <span aria-hidden="true">↗</span></a>
       </section>
+
     </main>
 
     <footer class="site-footer">
-      <a class="footer-brand" href="./">RAM Sentinel</a>
-      <a href="https://github.com/kamalbuilds/ram-sentinel-releases/releases/latest/download/RamSentinel-macos.dmg">Download for Mac</a>
+      <a class="footer-brand" href="./">FixMyMac</a>
+      <span>Version 0.3.0 · macOS 13 or later · Apple silicon</span>
+      <a href="https://github.com/kamalbuilds/ram-sentinel-releases/releases/latest/download/FixMyMac.dmg">Download for Mac</a>
     </footer>
   </body>
 </html>
