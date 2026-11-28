@@ -1,6 +1,5 @@
 document.documentElement.classList.add("js");
 
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const copyButton = document.querySelector(".brew-copy");
 if (copyButton) {
@@ -62,7 +61,6 @@ const STATES = {
 };
 
 let current = 1;
-let swapFrame = 0;
 
 function setSwap(value) {
   const label = stage.querySelector("[data-swap-label]");
@@ -73,28 +71,14 @@ function setSwap(value) {
   if (meter) meter.style.setProperty("--fill", `${value}%`);
 }
 
-function animateSwap(from, to) {
-  cancelAnimationFrame(swapFrame);
-  if (reduceMotion) { setSwap(to); return; }
-  const start = performance.now();
-  const tick = (now) => {
-    const t = Math.min(1, (now - start) / 520);
-    const eased = 1 - Math.pow(1 - t, 3);
-    setSwap(Math.round(from + (to - from) * eased));
-    if (t < 1) swapFrame = requestAnimationFrame(tick);
-  };
-  swapFrame = requestAnimationFrame(tick);
-}
-
 function applyState(index) {
   if (!stage || index === current) return;
   const next = STATES[index];
   if (!next) return;
-  const previousSwap = STATES[current].swap;
   current = index;
 
   stage.dataset.screenState = next.mode;
-  animateSwap(previousSwap, next.swap);
+  setSwap(next.swap);
 
   const headline = stage.querySelector("[data-headline]");
   const sub = stage.querySelector("[data-sub]");
@@ -127,8 +111,8 @@ if (stage && steps.length) {
       const box = step.getBoundingClientRect();
       const distance = Math.abs(box.top + box.height / 2 - middle);
       if (distance < bestDistance) { bestDistance = distance; best = Number(step.dataset.step); }
-      step.classList.toggle("is-active", Number(step.dataset.step) === best);
     }
+    for (const step of steps) step.classList.toggle("is-active", Number(step.dataset.step) === best);
     applyState(best);
   };
   const request = () => {
