@@ -8,9 +8,11 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="FixMyMac for Mac">
     <meta property="og:description" content="See what's filling your Mac's memory, then choose what to close.">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://fixmymac.pro/assets/fixmymac-mark-1024.png">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FixMyMac for Mac">
     <meta name="twitter:description" content="See what's filling your Mac's memory, then choose what to close.">
+    <meta name="twitter:image" content="https://fixmymac.pro/assets/fixmymac-mark-1024.png">
     <title>FixMyMac for Mac | Find what's filling your memory</title>
     <link rel="icon" type="image/svg+xml" href="./ram-sentinel-mark.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,47 +27,250 @@
         <span>FixMyMac</span>
       </a>
       <nav aria-label="Main navigation">
-        <a class="nav-link" href="#pricing">Get Pro</a>
-        <a class="button button-small" href="https://fixmymac.pro/FixMyMac.dmg" download>Download</a>
+        <a class="nav-link" href="#how">How it works</a>
+        <a class="nav-link" href="#pricing">Pricing</a>
+        <a class="button button-small" href="https://fixmymac.pro/download" download>Download</a>
       </nav>
     </header>
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <h1 id="hero-title">Find what’s filling your Mac</h1>
-          <p class="lede">FixMyMac shows which apps and background processes are using memory, so you can choose what to close before a slowdown becomes a freeze.</p>
-          <a class="button" href="https://fixmymac.pro/FixMyMac.dmg" download>Download for Mac <span aria-hidden="true">↓</span></a>
-          <p class="requirements">Version 0.3.2 for macOS 13 or later on Apple silicon. Signed and notarized by Apple.</p>
+          <p class="eyebrow">Menu-bar memory watchdog</p>
+          <h1 id="hero-title">Your Mac is not out of space. It is out of memory.</h1>
+          <p class="lede">FixMyMac watches RAM and swap, names the app eating both, and closes the leftovers before the freeze.</p>
+          <div class="hero-actions">
+            <a class="button" href="https://fixmymac.pro/download" download>Download for Mac <span aria-hidden="true">↓</span></a>
+            <button class="brew-copy" type="button" data-copy="brew install --cask fixmymac/tap/fixmymac">
+              <code>brew install --cask fixmymac/tap/fixmymac</code>
+              <span class="brew-copy-label">Copy</span>
+            </button>
+          </div>
+          <p class="requirements">Version 0.3.2 · macOS 13 or later · Apple silicon · Signed and notarized by Apple</p>
         </div>
 
-        <figure class="panel product-shot">
-          <img src="./assets/dashboard.jpg" width="2000" height="1000" alt="FixMyMac dashboard showing memory pressure, swap use, a memory map, and apps that can be reviewed or closed." fetchpriority="high">
-          <figcaption>FixMyMac dashboard</figcaption>
+        <div class="hero-stage">
+          <div class="macbook macbook-hero" data-screen-state="critical" aria-hidden="true">
+            <div class="macbook-lid">
+              <div class="screen">
+                <div class="menubar">
+                  <span class="mb-app">FixMyMac</span>
+                  <span class="mb-status"><span class="status-dot"></span><span data-swap-label>Swap 86%</span><span class="mb-clock">14:32</span></span>
+                </div>
+                <div class="dash">
+                  <div class="dash-main">
+                    <div class="dash-head">
+                      <span class="status-dot status-dot-lg"></span>
+                      <div>
+                        <h2 data-headline>Swap 86% full, system will freeze soon</h2>
+                        <p data-sub>Holding 18.8 GB on a 16.0 GB Mac. 6.9 GB of it waits on the disk.</p>
+                      </div>
+                    </div>
+                    <div class="metrics">
+                      <div class="metric">
+                        <span class="metric-label">Load per core</span>
+                        <strong>0.6</strong>
+                        <span class="meter"><i style="--fill:24%"></i></span>
+                        <small>stalls past 10</small>
+                      </div>
+                      <div class="metric metric-alert">
+                        <span class="metric-label">Swap</span>
+                        <strong data-swap-value>86%</strong>
+                        <span class="meter"><i style="--fill:86%" data-swap-meter></i></span>
+                        <small>6.9 GB of 8.0 GB on disk</small>
+                      </div>
+                      <div class="metric">
+                        <span class="metric-label">Compressor</span>
+                        <strong>5.8 GB</strong>
+                        <span class="meter"><i style="--fill:58%"></i></span>
+                        <small>RAM spent squeezing</small>
+                      </div>
+                      <div class="metric">
+                        <span class="metric-label">Pressure</span>
+                        <strong>44% free</strong>
+                        <span class="meter"><i style="--fill:44%"></i></span>
+                        <small>macOS headroom estimate</small>
+                      </div>
+                    </div>
+<div class="bg">
+                      <div class="bg-head"><span>Background</span><span>launchd jobs</span></div>
+                      <div class="bg-row"><span class="job-dot"></span><span class="bg-name">revenue-0b<small>shell · restarted 2 times</small></span><b>1.1 GB</b><button type="button" tabindex="-1">Stop</button></div>
+                      <div class="bg-row"><span class="job-dot"></span><span class="bg-name">com.kamal.ram-sentinel<small>launchd agent · up 4 days</small></span><b>64 MB</b><button type="button" tabindex="-1">Stop</button></div>
+                    </div>
+                                        <div class="memory">
+                      <div class="memory-head">
+                        <span>Memory</span>
+                        <span class="legend"><i class="lg-apps"></i>your apps <i class="lg-comp"></i>compressor <i class="lg-free"></i>free <i class="lg-disk"></i>on disk</span>
+                      </div>
+                      <div class="mem-bar">
+                        <span class="seg seg-apps" data-seg-apps style="--w:38%"></span>
+                        <span class="seg seg-comp" style="--w:36%"></span>
+                        <span class="seg seg-free" style="--w:26%"></span>
+                        <span class="seg seg-disk" data-seg-disk style="--w:43%"></span>
+                      </div>
+                      <div class="mem-axis"><span>0</span><span>16.0 GB RAM</span><span>on disk</span></div>
+                    </div>
+                  </div>
+                  <aside class="dash-side">
+                    <h3>Free up memory</h3>
+                    <p class="side-sub" data-side-sub>Closing everything marked safe gives back about 3.6 GB.</p>
+                    <p class="side-label">SAFE TO CLOSE</p>
+                    <ul class="hogs">
+                      <li data-hog="brave"><span class="hog-name">Brave Browser<small>35 processes</small></span><b>2.9 GB</b><button type="button" tabindex="-1">Close</button></li>
+                      <li data-hog="wisp"><span class="hog-name">Wisp Flow<small>11 processes</small></span><b>359 MB</b><button type="button" tabindex="-1">Close</button></li>
+                      <li data-hog="cli"><span class="hog-name">cli<small>background worker</small></span><b>100 MB</b><button type="button" tabindex="-1">Close</button></li>
+                      <li data-hog="whatsapp"><span class="hog-name">WhatsApp<small>1 process</small></span><b>217 MB</b><button type="button" tabindex="-1">Quit...</button></li>
+                    </ul>
+                    <p class="freed" data-freed>3.6 GB freed · nothing froze</p>
+                  </aside>
+                </div>
+              </div>
+            </div>
+            <div class="macbook-base"></div>
+          </div>
+          <p class="stage-caption">The dashboard, at 86% swap on a 16 GB Mac. Recorded example.</p>
+        </div>
+      </section>
+
+      <section class="story" id="how" aria-labelledby="story-title">
+        <div class="story-intro">
+          <p class="eyebrow">The ten minutes before a freeze</p>
+          <h2 id="story-title">Watch the same dashboard recover.</h2>
+        </div>
+        <div class="story-track">
+          <div class="story-steps">
+            <article class="story-step" data-step="1">
+              <p class="step-num">01</p>
+              <h3>Swap fills first</h3>
+              <p>Disk space has nothing to do with it. When RAM runs out, macOS writes memory to swap. At 86% the next allocation is where the freeze starts.</p>
+            </article>
+            <article class="story-step" data-step="2">
+              <p class="step-num">02</p>
+              <h3>The hog has a name</h3>
+              <p>Brave Browser: 35 processes, 2.9 GB. FixMyMac groups every child process under the app that owns it, so you close the right thing, not a random helper.</p>
+            </article>
+            <article class="story-step" data-step="3">
+              <p class="step-num">03</p>
+              <h3>One click, before the freeze</h3>
+              <p>Close leftovers first. Kept profiles are never touched. Swap falls to 31%, the menu-bar dot turns green, and the work you had open stays open.</p>
+            </article>
+          </div>
+
+          <div class="story-stage">
+            <div class="macbook macbook-story" data-screen-state="critical" aria-hidden="true">
+              <div class="macbook-lid">
+                <div class="screen">
+                  <div class="menubar">
+                    <span class="mb-app">FixMyMac</span>
+                    <span class="mb-status"><span class="status-dot"></span><span data-swap-label>Swap 86%</span><span class="mb-clock">14:32</span></span>
+                  </div>
+                  <div class="dash">
+                    <div class="dash-main">
+                      <div class="dash-head">
+                        <span class="status-dot status-dot-lg"></span>
+                        <div>
+                          <h2 data-headline>Swap 86% full, system will freeze soon</h2>
+                          <p data-sub>Holding 18.8 GB on a 16.0 GB Mac. 6.9 GB of it waits on the disk.</p>
+                        </div>
+                      </div>
+                      <div class="metrics">
+                        <div class="metric">
+                          <span class="metric-label">Load per core</span>
+                          <strong>0.6</strong>
+                          <span class="meter"><i style="--fill:24%"></i></span>
+                          <small>stalls past 10</small>
+                        </div>
+                        <div class="metric metric-alert">
+                          <span class="metric-label">Swap</span>
+                          <strong data-swap-value>86%</strong>
+                          <span class="meter"><i style="--fill:86%" data-swap-meter></i></span>
+                          <small>6.9 GB of 8.0 GB on disk</small>
+                        </div>
+                        <div class="metric">
+                          <span class="metric-label">Compressor</span>
+                          <strong>5.8 GB</strong>
+                          <span class="meter"><i style="--fill:58%"></i></span>
+                          <small>RAM spent squeezing</small>
+                        </div>
+                        <div class="metric">
+                          <span class="metric-label">Pressure</span>
+                          <strong>44% free</strong>
+                          <span class="meter"><i style="--fill:44%"></i></span>
+                          <small>macOS headroom estimate</small>
+                        </div>
+                      </div>
+<div class="bg">
+                      <div class="bg-head"><span>Background</span><span>launchd jobs</span></div>
+                      <div class="bg-row"><span class="job-dot"></span><span class="bg-name">revenue-0b<small>shell · restarted 2 times</small></span><b>1.1 GB</b><button type="button" tabindex="-1">Stop</button></div>
+                      <div class="bg-row"><span class="job-dot"></span><span class="bg-name">com.kamal.ram-sentinel<small>launchd agent · up 4 days</small></span><b>64 MB</b><button type="button" tabindex="-1">Stop</button></div>
+                    </div>
+                                          <div class="memory">
+                        <div class="memory-head">
+                          <span>Memory</span>
+                          <span class="legend"><i class="lg-apps"></i>your apps <i class="lg-comp"></i>compressor <i class="lg-free"></i>free <i class="lg-disk"></i>on disk</span>
+                        </div>
+                        <div class="mem-bar">
+                          <span class="seg seg-apps" data-seg-apps style="--w:38%"></span>
+                          <span class="seg seg-comp" style="--w:36%"></span>
+                          <span class="seg seg-free" style="--w:26%"></span>
+                          <span class="seg seg-disk" data-seg-disk style="--w:43%"></span>
+                        </div>
+                        <div class="mem-axis"><span>0</span><span>16.0 GB RAM</span><span>on disk</span></div>
+                      </div>
+                    </div>
+                    <aside class="dash-side">
+                      <h3>Free up memory</h3>
+                      <p class="side-sub" data-side-sub>Closing everything marked safe gives back about 3.6 GB.</p>
+                      <p class="side-label">SAFE TO CLOSE</p>
+                      <ul class="hogs">
+                        <li data-hog="brave"><span class="hog-name">Brave Browser<small>35 processes</small></span><b>2.9 GB</b><button type="button" tabindex="-1">Close</button></li>
+                        <li data-hog="wisp"><span class="hog-name">Wisp Flow<small>11 processes</small></span><b>359 MB</b><button type="button" tabindex="-1">Close</button></li>
+                        <li data-hog="cli"><span class="hog-name">cli<small>background worker</small></span><b>100 MB</b><button type="button" tabindex="-1">Close</button></li>
+                        <li data-hog="whatsapp"><span class="hog-name">WhatsApp<small>1 process</small></span><b>217 MB</b><button type="button" tabindex="-1">Quit...</button></li>
+                      </ul>
+                      <p class="freed" data-freed>3.6 GB freed · nothing froze</p>
+                    </aside>
+                  </div>
+                </div>
+              </div>
+              <div class="macbook-base"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence" aria-labelledby="evidence-title">
+        <div class="section-intro">
+          <h2 id="evidence-title">This is the real window, not a mockup.</h2>
+          <p>Every process under an app, every launchd job with its tree, and a memory bar that shows swap spilling past the RAM edge onto disk. Recorded on a 16 GB Mac at 86% swap.</p>
+        </div>
+        <figure class="evidence-shot">
+          <img src="./assets/dashboard.jpg" width="2000" height="1000" alt="FixMyMac dashboard showing 86% swap, a memory map split by app, compressor, free memory and disk, and a list of apps that can be closed." loading="lazy">
+          <figcaption>Recorded example: 18.8 GB held on a 16.0 GB Mac.</figcaption>
         </figure>
       </section>
 
       <section class="capabilities" aria-labelledby="capabilities-title">
         <div class="section-intro">
-          <h2 id="capabilities-title">See what’s behind the pressure</h2>
-          <p>When Activity Monitor shows a long list of helpers, FixMyMac groups apps and processes into a view you can act on. It can also spot background work left by coding assistants and automated browsers.</p>
+          <h2 id="capabilities-title">It looks past the app list.</h2>
+          <p>Activity Monitor stops at a long list of helpers. FixMyMac follows the tree, finds the job that keeps coming back, and leaves what you marked as yours alone.</p>
         </div>
         <div class="capability-list">
           <article>
-            <h3>Follow an app’s processes</h3>
-            <p>Expand an app to see its child processes. Choose one to end, and FixMyMac warns you first.</p>
+            <h3>Background jobs, with a history</h3>
+            <p>Every launchd job with the memory and CPU of its whole tree, the zombie processes it left behind, how often launchd restarted it, and who installed it. Stop removes it. Stop and disable keeps it from starting at login.</p>
           </article>
           <article>
-            <h3>Keep your important profiles open</h3>
-            <p>Mark browser profiles as <span class="chip">Kept</span>. FixMyMac leaves them alone during cleanup.</p>
+            <h3>Kept profiles stay open</h3>
+            <p>Mark a browser profile as <span class="chip">Kept</span> and cleanup never touches it. Leftover automation profiles go first.</p>
           </article>
           <article>
-            <h3>Notice memory that keeps climbing</h3>
-            <p>FixMyMac flags apps whose memory use continues to rise, so you can investigate before they crowd out everything else.</p>
+            <h3>Autopilot, off by default</h3>
+            <p>Turn it on and choose Ask first, or let it close leftovers on its own. The activity log records every close and what it freed. <a href="https://fixmymac.pro/claude-code-memory-mac">Claude Code memory guide</a></p>
           </article>
           <article>
-            <h3>Choose when cleanup happens</h3>
-            <p>Autopilot is off by default. In Ask first mode, review each proposed close. The Activity log records every close and its recovery result.</p>
+            <h3>Leaks get noticed</h3>
+            <p>FixMyMac flags an app whose memory keeps climbing, so you look before it crowds out everything else.</p>
           </article>
         </div>
       </section>
@@ -117,18 +322,24 @@
 
       <section class="local-run" aria-labelledby="local-title">
         <div>
-          <h2 id="local-title">Your Mac stays in control</h2>
-          <p>Memory checks and app controls run on your Mac. No account or sign-in is needed.</p>
+          <h2 id="local-title">Install it before the next freeze.</h2>
+          <p>Memory checks and app controls run on your Mac. No account or sign-in is needed. The app updates itself from a signed feed.</p>
         </div>
-        <a class="button" href="https://fixmymac.pro/FixMyMac.dmg" download>Download for Mac <span aria-hidden="true">↓</span></a>
+        <a class="button" href="https://fixmymac.pro/download" download>Download for Mac <span aria-hidden="true">↓</span></a>
       </section>
-
     </main>
 
     <footer class="site-footer">
       <a class="footer-brand" href="./">FixMyMac</a>
       <span>Version 0.3.2 · macOS 13 or later · Apple silicon</span>
-      <a href="https://fixmymac.pro/FixMyMac.dmg" download>Download for Mac</a>
+      <a href="https://fixmymac.pro/claude-code-memory-mac">Claude Code memory guide</a>
+      <a href="https://fixmymac.pro/privacy">Privacy</a>
+      <a href="https://fixmymac.pro/download" download>Download for Mac</a>
     </footer>
+    <script src="./app.js"></script>
+    <script>
+      const ref = new URLSearchParams(location.search).get('ref');
+      if (ref) for (const a of document.querySelectorAll('a[href="https://fixmymac.pro/download"]')) a.href = 'https://fixmymac.pro/download?ref=' + encodeURIComponent(ref);
+    </script>
   </body>
 </html>
